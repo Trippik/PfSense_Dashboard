@@ -1,0 +1,86 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - dashboard_db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Asdfghjkl;123
+      MYSQL_DATABASE: Dashboard_DB
+      MYSQL_USER: dashdbclient
+      MYSQL_PASSWORD: pfsense
+  
+  data_collection_server:
+    depends_on:
+      - db
+    image: trippik/pfsense_dashboard-data_collection_server:0.7.1
+    volumes:
+      - dashboard_models:/var/models
+    environment:
+      DB_IP: db
+      DB_USER: dashdbclient
+      DB_PASS: pfsense
+      DB_SCHEMA: Dashboard_DB
+      DB_PORT: "3306"
+      SYSLOG_POLL_INTERVAL: "2"
+      SSH_POLL_INTERVAL: "5"
+  
+  data_processing_server:
+    depends_on:
+      - db
+      - data_collection_server
+    image: trippik/pfsense_dashboard-data_processing_server:0.2.1
+    volumes:
+      - dashboard_models:/var/models
+    environment:
+      DB_IP: db
+      DB_USER: dashdbclient
+      DB_PASS: pfsense
+      DB_SCHEMA: Dashboard_DB
+      DB_PORT: "3306"
+      TIME: "21:00"
+      day: Monday
+  
+  reporting_server:
+    depends_on:
+      - db
+      - data_collection_server
+      - data_processing_server
+    image: trippik/pfsense_dashboard-reporting_server:0.1
+    volumes:
+      - dashboard_reports:/var/reports
+    environment:
+      DB_IP: db
+      DB_USER: dashdbclient
+      DB_PASS: pfsense
+      DB_SCHEMA: Dashboard_DB
+      DB_PORT: "3306"
+      REPORTING_HOUR: "21"
+      SEND_ADDRESS: placeholder@placeholder.com
+      SEND_PASSWORD: Password
+      SMTP_ADDRESS: smtp.placeholder.com
+      SMTP_PORT: "9999"
+  
+  dashboard_frontend:
+    depends_on:
+      - db
+      - data_collection_server
+      - data_processing_server
+    image: trippik/pfsense_dashboard-frontend:0.3.2
+    ports:
+      - "8080:8080"
+    environment:
+      DB_IP: db
+      DB_USER: dashdbclient
+      DB_PASS: pfsense
+      DB_SCHEMA: Dashboard_DB
+      DB_PORT: "3306"
+      SALT: Asdfghjkl;123
+      NOMINATIM_USER: placeholder@placeholder.com
+
+volumes:
+  dashboard_db_data: {}
+  dashboard_models: {}
+  dashboard_reports: {}
