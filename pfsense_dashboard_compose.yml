@@ -17,7 +17,7 @@ services:
   data_collection_server:
     links:
       - db
-    image: trippik/pfsense_dashboard-data_collection_server:0.7.1
+    image: trippik/pfsense_dashboard-data_collection_server:0.7.2
     volumes:
       - dashboard_models:/var/models
     environment:
