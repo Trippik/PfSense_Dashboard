@@ -3,6 +3,8 @@ version: "3.9"
 services:
   db:
     image: mysql:latest
+    ports:
+      - "3306:3306"
     volumes:
       - dashboard_db_data:/var/lib/mysql
     restart: always
@@ -13,7 +15,7 @@ services:
       MYSQL_PASSWORD: pfsense
   
   data_collection_server:
-    depends_on:
+    links:
       - db
     image: trippik/pfsense_dashboard-data_collection_server:0.7.1
     volumes:
@@ -28,9 +30,8 @@ services:
       SSH_POLL_INTERVAL: "5"
   
   data_processing_server:
-    depends_on:
+    links:
       - db
-      - data_collection_server
     image: trippik/pfsense_dashboard-data_processing_server:0.2.1
     volumes:
       - dashboard_models:/var/models
@@ -44,10 +45,8 @@ services:
       day: Monday
   
   reporting_server:
-    depends_on:
+    links:
       - db
-      - data_collection_server
-      - data_processing_server
     image: trippik/pfsense_dashboard-reporting_server:0.1
     volumes:
       - dashboard_reports:/var/reports
@@ -64,10 +63,8 @@ services:
       SMTP_PORT: "9999"
   
   dashboard_frontend:
-    depends_on:
+    links:
       - db
-      - data_collection_server
-      - data_processing_server
     image: trippik/pfsense_dashboard-frontend:0.3.2
     ports:
       - "8080:8080"
