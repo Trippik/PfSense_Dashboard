@@ -47,7 +47,7 @@ services:
   reporting_server:
     links:
       - db
-    image: trippik/pfsense_dashboard-reporting_server:0.1
+    image: trippik/pfsense_dashboard-reporting_server:0.1.1
     volumes:
       - dashboard_reports:/var/reports
     environment:
