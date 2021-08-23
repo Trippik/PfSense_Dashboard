@@ -17,7 +17,7 @@ services:
   data_collection_server:
     links:
       - db
-    image: trippik/pfsense_dashboard-data_collection_server:0.7.2
+    image: trippik/pfsense_dashboard-data_collection_server:0.7.3
     volumes:
       - dashboard_models:/var/models
     environment:
@@ -65,7 +65,7 @@ services:
   dashboard_frontend:
     links:
       - db
-    image: trippik/pfsense_dashboard-frontend:0.3.5
+    image: trippik/pfsense_dashboard-frontend:0.3.6
     ports:
       - "8080:8080"
     environment:
