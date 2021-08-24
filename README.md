@@ -39,3 +39,7 @@ After running the Docker Compose script the next step is to complete the configu
   c. Replace the placeholder smtp address in the "SMTP_ADDRESS" ENV variable for the reporting server, to one relevant for your new "SEND_ADDRESS" email
   
   d. Replace the placeholder smtp port in the "SMTP_PORT" ENV variable for the reporting server, to one relevant for your new "SMTP_ADDRESS" entry
+
+## Compatibility
+All versions of PfSense 2.5.x Community Edition and PfSense 21.x and later are tested and supported, and although earlier 2.4.x versions of PfSense have been tested compatibility has been found to be limited, due to widespread bugs and formatting issues with log entries in this version of PfSense, 
+and the underlying BSD version is uses.
