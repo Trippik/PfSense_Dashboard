@@ -32,7 +32,7 @@ services:
   data_processing_server:
     links:
       - db
-    image: trippik/pfsense_dashboard-data_processing_server:0.2.1
+    image: trippik/pfsense_dashboard-data_processing_server:0.2.2
     volumes:
       - dashboard_models:/var/models
     environment:
