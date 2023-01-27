@@ -10,7 +10,7 @@ This system pulls in data from specified PfSense instances on your network provi
   - IPSec Connections
   - Instance Users
 - Monitoring of OpenVPN server activity
-- Dynamic geogrphic map showing location of PfSense instances, and IPSec tunnels between them
+- Dynamic geographic map showing location of PfSense instances, and IPSec tunnels between them
 - Email reporting of log entries flagged by machine learning algorithm 
   
 ## Setup Instructions
