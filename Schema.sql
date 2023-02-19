@@ -29,8 +29,7 @@ CREATE TABLE `combined_reports_recievers` (
   `receiver_address` varchar(255) NOT NULL,
   `reciever_description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ;
 
 --
 -- Table structure for table `dashboard_user`
@@ -45,8 +44,7 @@ CREATE TABLE `dashboard_user` (
   `pass` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name` (`user_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Dumping data for table `dashboard_user`
@@ -71,8 +69,7 @@ CREATE TABLE `error_rates` (
   `daily_error` varchar(255) DEFAULT NULL,
   `weekly_error` varchar(255) DEFAULT NULL,
   `joint_error` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `freebsd_version`
@@ -85,8 +82,7 @@ CREATE TABLE `freebsd_version` (
   `id` int NOT NULL AUTO_INCREMENT,
   `freebsd_version` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `open_vpn_access_log`
@@ -102,8 +98,7 @@ CREATE TABLE `open_vpn_access_log` (
   `vpn_user` int DEFAULT NULL,
   `pfsense_instance` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11075 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `open_vpn_report_recievers`
@@ -117,8 +112,7 @@ CREATE TABLE `open_vpn_report_recievers` (
   `reciever_name` varchar(255) DEFAULT NULL,
   `reciever_address` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_act`
@@ -131,8 +125,7 @@ CREATE TABLE `pfsense_act` (
   `id` int NOT NULL AUTO_INCREMENT,
   `act` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_direction`
@@ -145,8 +138,7 @@ CREATE TABLE `pfsense_direction` (
   `id` int NOT NULL AUTO_INCREMENT,
   `direction` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_ecn_header`
@@ -159,8 +151,7 @@ CREATE TABLE `pfsense_ecn_header` (
   `id` int NOT NULL AUTO_INCREMENT,
   `ecn_header` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55113 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_firewall_rules`
@@ -178,8 +169,7 @@ CREATE TABLE `pfsense_firewall_rules` (
   PRIMARY KEY (`id`),
   KEY `pfsense_instance` (`pfsense_instance`),
   CONSTRAINT `pfsense_firewall_rules_ibfk_1` FOREIGN KEY (`pfsense_instance`) REFERENCES `pfsense_instances` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17726 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_flags`
@@ -192,8 +182,7 @@ CREATE TABLE `pfsense_flags` (
   `id` int NOT NULL AUTO_INCREMENT,
   `flags` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=540 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_instance_interfaces`
@@ -214,8 +203,7 @@ CREATE TABLE `pfsense_instance_interfaces` (
   `interface_type` varchar(255) DEFAULT NULL,
   `interface_status` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=82396 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_instance_users`
@@ -231,8 +219,7 @@ CREATE TABLE `pfsense_instance_users` (
   `user_description` varchar(255) DEFAULT NULL,
   `pfsense_instance` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=445 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_instances`
@@ -258,8 +245,7 @@ CREATE TABLE `pfsense_instances` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `pfsense_name` (`pfsense_name`),
   UNIQUE KEY `hostname` (`hostname`)
-) ENGINE=InnoDB AUTO_INCREMENT=1085 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_ip`
@@ -272,8 +258,7 @@ CREATE TABLE `pfsense_ip` (
   `id` int NOT NULL AUTO_INCREMENT,
   `ip` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44340 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_ipsec_connections`
@@ -290,8 +275,7 @@ CREATE TABLE `pfsense_ipsec_connections` (
   `local_ranges` varchar(255) DEFAULT NULL,
   `remote_ranges` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=155477 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_log_bucket`
@@ -304,8 +288,7 @@ CREATE TABLE `pfsense_log_bucket` (
   `id` int NOT NULL AUTO_INCREMENT,
   `log` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1641172 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_log_type`
@@ -318,8 +301,7 @@ CREATE TABLE `pfsense_log_type` (
   `id` int NOT NULL AUTO_INCREMENT,
   `log_type` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7848 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_logs`
@@ -385,8 +367,7 @@ CREATE TABLE `pfsense_logs` (
   CONSTRAINT `pfsense_logs_ibfk_7` FOREIGN KEY (`tos_header`) REFERENCES `pfsense_tos_header` (`id`),
   CONSTRAINT `pfsense_logs_ibfk_8` FOREIGN KEY (`ecn_header`) REFERENCES `pfsense_ecn_header` (`id`),
   CONSTRAINT `pfsense_logs_ibfk_9` FOREIGN KEY (`flags`) REFERENCES `pfsense_flags` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4625086 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_openvpn_logs`
@@ -400,8 +381,7 @@ CREATE TABLE `pfsense_openvpn_logs` (
   `pfsense_instance` int DEFAULT NULL,
   `log` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=281301 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_protocol`
@@ -414,8 +394,7 @@ CREATE TABLE `pfsense_protocol` (
   `id` int NOT NULL AUTO_INCREMENT,
   `protocol` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_real_interface`
@@ -430,8 +409,7 @@ CREATE TABLE `pfsense_real_interface` (
   `pfsense_instance` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `pfsense_real_interface_ibfk_1` (`pfsense_instance`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_reason`
@@ -444,8 +422,7 @@ CREATE TABLE `pfsense_reason` (
   `id` int NOT NULL AUTO_INCREMENT,
   `reason` varchar(250) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_release`
@@ -458,8 +435,7 @@ CREATE TABLE `pfsense_release` (
   `id` int NOT NULL AUTO_INCREMENT,
   `pfsense_release` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `pfsense_tos_header`
@@ -472,8 +448,7 @@ CREATE TABLE `pfsense_tos_header` (
   `id` int NOT NULL AUTO_INCREMENT,
   `tos_header` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `vpn_user`
@@ -486,8 +461,7 @@ CREATE TABLE `vpn_user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+);
 
 --
 -- Table structure for table `whitelist`
@@ -502,7 +476,7 @@ CREATE TABLE `whitelist` (
   `destination_port` int NOT NULL,
   `pfsense_instance` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
