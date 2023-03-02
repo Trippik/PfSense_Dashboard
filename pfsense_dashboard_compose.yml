@@ -65,7 +65,7 @@ services:
   dashboard_frontend:
     links:
       - db
-    image: trippik/pfsense_dashboard-frontend:1.1
+    image: trippik/pfsense_dashboard-frontend:1.1.1
     ports:
       - "8080:8080"
     environment:
