@@ -15,7 +15,7 @@ services:
       MYSQL_PASSWORD: pfsense
   
   data_collection_server:
-    links:
+    depends_on:
       - db
     image: trippik/pfsense_dashboard-data_collection_server:latest
     volumes:
@@ -30,7 +30,7 @@ services:
       SSH_POLL_INTERVAL: "5"
   
   data_processing_server:
-    links:
+    depends_on:
       - db
     image: trippik/pfsense_dashboard-data_processing_server:latest
     volumes:
@@ -45,7 +45,7 @@ services:
       day: Monday
   
   reporting_server:
-    links:
+    depends_on:
       - db
     image: trippik/pfsense_dashboard-reporting_server:latest
     volumes:
@@ -63,7 +63,7 @@ services:
       SMTP_PORT: "9999"
   
   dashboard_frontend:
-    links:
+    depends_on:
       - db
     image: trippik/pfsense_dashboard-frontend:latest
     ports:
